@@ -12,6 +12,7 @@ import (
 func notFoundTask(t *testing.T, id string) {
 	body, err := requestJSON("api/task?id="+id, nil, http.MethodGet)
 	assert.NoError(t, err)
+
 	var m map[string]any
 	err = json.Unmarshal(body, &m)
 	assert.NoError(t, err)
